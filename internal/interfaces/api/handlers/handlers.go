@@ -52,11 +52,11 @@ func (a *Handlers) CreateServer(address string) (*http.Server, error) {
 	r.GET("/ping", a.checkConnectivity)
 
 	r.POST("/membership", a.membershipHandler.CreateMembership)
+	r.POST("/contact", a.contactHandler.CreateContact)
 	r.POST("/login", a.authHandler.Login)
 	r.Use(middleware.AuthMiddleware(a.jwtService))
 
 	r.GET("/membership", a.membershipHandler.GetAllMemberships)
-	r.POST("/contact", a.contactHandler.CreateContact)
 	r.PUT("/contact/:id", a.contactHandler.UpdateContact)
 
 	server := &http.Server{
