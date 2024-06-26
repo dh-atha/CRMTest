@@ -1,0 +1,16 @@
+server:
+  mode: debug
+  port: 5000
+  shutdown_timeout: 10s
+  jwt_secret: mysecret
+  token_duration: 1h
+
+postgres:
+  host: localhost
+  port: 5432
+  database: absence
+  username: admin
+  password: admin
+  options:
+    - sslmode=disable
+   
